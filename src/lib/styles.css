@@ -28,3 +28,36 @@
 .clarte-card-enter {
   animation: clarte-card-in 140ms ease-out;
 }
+
+.clarity-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(71, 85, 105, 0.58) transparent;
+}
+
+.clarity-scroll::-webkit-scrollbar {
+  width: 20px;
+}
+
+.clarity-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 999px;
+}
+
+.clarity-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(71, 85, 105, 0.56) 0%,
+    rgba(51, 65, 85, 0.64) 100%
+  );
+  border-radius: 999px;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+.clarity-scroll::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(51, 65, 85, 0.68) 0%,
+    rgba(30, 41, 59, 0.74) 100%
+  );
+}
