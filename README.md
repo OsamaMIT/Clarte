@@ -26,4 +26,4 @@ It’s two men in the middle of this ring. Both of us bloodied, drenched in hate
 5. Generational Gap pt2:
 
 
-```My little brother told me he's 67 years old and proceeded to laugh```
+```The internet meme "six seven" is taking the world by storm. kids will just say six seven at any thing and laugh```
