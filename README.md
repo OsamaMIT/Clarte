@@ -22,3 +22,8 @@ It’s two men in the middle of this ring. Both of us bloodied, drenched in hate
 4. Linguistic Context (Word Usage in Context):
    
 ```He’s cold```
+
+5. Generational Gap pt2:
+
+
+'''My little brother told me he's 67 years old and proceeded to laugh'''
