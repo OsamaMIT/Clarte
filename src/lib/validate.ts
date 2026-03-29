@@ -45,9 +45,6 @@ export function validateGeminiOutput(value: unknown): ValidationResult {
   if (!isNonEmptyString(record.simpler_version)) {
     return { ok: false, error: "Field 'simpler_version' must be a non-empty string." };
   }
-  if (!isNonEmptyString(record.audience_version)) {
-    return { ok: false, error: "Field 'audience_version' must be a non-empty string." };
-  }
   if (!isNonEmptyString(record.uncertainty_reason)) {
     return { ok: false, error: "Field 'uncertainty_reason' must be a non-empty string." };
   }
@@ -66,7 +63,6 @@ export function validateGeminiOutput(value: unknown): ValidationResult {
     value: {
       meaning: record.meaning.trim(),
       simpler_version: record.simpler_version.trim(),
-      audience_version: record.audience_version.trim(),
       confidence: record.confidence,
       needs_more_context: record.needs_more_context,
       uncertainty_reason: record.uncertainty_reason.trim()

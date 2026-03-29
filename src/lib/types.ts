@@ -61,7 +61,6 @@ export interface ExplainRequestContext {
 export interface GeminiOutput {
   meaning: string;
   simpler_version: string;
-  audience_version: string;
   confidence: number;
   needs_more_context: boolean;
   uncertainty_reason: string;
@@ -96,7 +95,6 @@ export interface ExplainCardData {
   state: CardState;
   meaning: string;
   simplerVersion: string;
-  audienceVersion: string;
   confidence: number | null;
   errorMessage: string;
   position: {

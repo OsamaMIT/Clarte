@@ -9,7 +9,6 @@
   export let selectedText = "";
   export let meaning = "";
   export let simplerVersion = "";
-  export let audienceVersion = "";
   export let confidence: number | null = null;
   export let errorMessage = "";
   export let position = { top: 16, left: 16 };
@@ -72,7 +71,7 @@
 {#if visible && state !== "hidden"}
   <div class="fixed inset-0 z-[2147483647] pointer-events-none">
     <article
-      class="clarte-card-enter pointer-events-auto absolute w-[min(380px,calc(100vw-24px))] max-h-[min(75vh,560px)] overflow-auto rounded-lg border border-border bg-card p-4 text-card-foreground shadow-card"
+      class="clarte-card-enter clarity-scroll pointer-events-auto absolute w-[min(380px,calc(100vw-24px))] max-h-[min(75vh,560px)] overflow-auto rounded-lg border border-border bg-card p-4 text-card-foreground shadow-card"
       style={`top:${position.top}px;left:${position.left}px;`}
     >
       <header class="mb-3 flex items-start justify-between gap-3 cursor-move select-none" on:pointerdown={startDrag}>
@@ -121,10 +120,6 @@
             <p class="text-sm leading-relaxed">{simplerVersion}</p>
           </section>
 
-          <section class="space-y-1">
-            <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Audience Version</p>
-            <p class="text-sm leading-relaxed">{audienceVersion}</p>
-          </section>
         </div>
       {/if}
 

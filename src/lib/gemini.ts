@@ -28,7 +28,6 @@ function outputSchemaDescription(): string {
   return `{
   "meaning": "string",
   "simpler_version": "string",
-  "audience_version": "string",
   "confidence": number,
   "needs_more_context": boolean,
   "uncertainty_reason": "string"
