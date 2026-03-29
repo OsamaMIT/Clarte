@@ -39,6 +39,13 @@
   {disabled}
   class={cn(buttonVariants({ variant, size }), className)}
   on:click
+  on:pointerdown
+  on:pointerup
+  on:pointercancel
+  on:pointerleave
+  on:keydown
+  on:keyup
+  on:blur
   {...$$restProps}
 >
   <slot />

@@ -131,9 +131,10 @@ function ensureCardMounted(): void {
     void runExplainFlow(true);
   });
 
-  cardComponent.$on("move", (event: CustomEvent<{ top: number; left: number }>) => {
+  cardComponent.$on("move", (event) => {
+    const moveEvent = event as CustomEvent<{ top: number; left: number }>;
     updateCard({
-      position: clampCardPosition(event.detail)
+      position: clampCardPosition(moveEvent.detail)
     });
   });
 }
