@@ -3,6 +3,12 @@
   "name": "Clarity",
   "description": "Bridging digital communication gaps",
   "version": "0.1.0",
+  "icons": {
+    "16": "logo.png",
+    "32": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
+  },
   "permissions": ["contextMenus", "storage", "activeTab", "scripting"],
   "host_permissions": ["<all_urls>"],
   "background": {
@@ -10,7 +16,11 @@
   },
   "action": {
     "default_title": "Open Clarity Settings",
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "logo.png",
+      "32": "logo.png"
+    }
   },
   "content_scripts": [
     {
