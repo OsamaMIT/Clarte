@@ -6,7 +6,7 @@ Bridging communication gaps with an AI-powered tool that provides context for di
 
 Clarity is an AI-powered browser extension that is avaliable when a user highlights text and selects the “Clarity” option. It generates a popup that explains what the selected text means in its specific context. The system gathers surrounding text (before and after the selection) and uses page information such as the URL to understand the topic and produce a concise, context-aware explanation.
 
-## Installation Guide
+# Installation Guide
 
 Download the release file: **Clarity.zip**
 
@@ -19,7 +19,10 @@ Download the release file: **Clarity.zip**
 5. Click **Load unpacked**.
 6. Go into the unzipped **Clarity** folder, and select the ```/dist``` folder.
 
-## Using the Extension
+- If the extension does not appear to work after updating files, go back to `chrome://extensions/` and click **Reload** on Clarity.
+- The extension requires an API key, for hackathon demo purposes you can paste your own Gemini key. Open the extension settings/options and paste your Gemini API key there. The extension uses Gemma, which is an open source model, and therefore requires no billed credits.
+  
+# Using the Extension
 
 1. Open any webpage.
 2. Highlight a word or phrase.
@@ -27,11 +30,6 @@ Download the release file: **Clarity.zip**
 4. Click **Explain Context**.
 
 - Settings can be changed from the extensions options or by clicking on the extension in extensions menu on the the top right of the browser.
-
-## Notes
-
-- If the extension requires an API key, open the extension settings/options and paste your Gemini API key there.
-- If the extension does not appear to work after updating files, go back to `chrome://extensions/` and click **Reload** on Clarity.
 
 ## Troubleshooting
 
