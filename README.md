@@ -13,7 +13,7 @@ Download the release file: **Clarity.zip**
 3. Go to `chrome://extensions/` or open your extensions menu.
 4. Turn on **Developer mode** using the toggle in the top-right corner.
 5. Click **Load unpacked**.
-6. Select the unzipped **Clarity** folder.
+6. Go into the unzipped **Clarity** folder, and select the ```/dist``` folder.
 
 ## Using the Extension
 
@@ -21,6 +21,8 @@ Download the release file: **Clarity.zip**
 2. Highlight a word or phrase.
 3. Right-click the highlighted text.
 4. Click **Explain Context**.
+
+- Settings can be changed from the extensions options or by clicking on the extension in extensions menu on the the top right of the browser.
 
 ## Notes
 
