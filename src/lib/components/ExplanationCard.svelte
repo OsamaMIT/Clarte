@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from "svelte";
-  import type { CardState } from "../types";
+  import type { CardState, ExplanationOrder } from "../types";
   import Button from "./ui/button/button.svelte";
   import Badge from "./ui/badge/badge.svelte";
 
@@ -9,6 +9,7 @@
   export let selectedText = "";
   export let meaning = "";
   export let simplerVersion = "";
+  export let explanationOrder: ExplanationOrder = "meaning_first";
   export let confidence: number | null = null;
   export let errorMessage = "";
   export let position = { top: 16, left: 16 };
@@ -23,6 +24,7 @@
   $: isSuccess = state === "success" || state === "low_confidence";
   $: isLowConfidence = state === "low_confidence";
   $: isError = state === "error" || state === "timeout";
+  $: showMeaningFirst = explanationOrder === "meaning_first";
 
   let dragging = false;
   let dragPointerId: number | null = null;
@@ -110,15 +112,27 @@
             <Badge variant="warning">Low confidence{#if confidence !== null}: {confidence.toFixed(2)}{/if}</Badge>
           {/if}
 
-          <section class="space-y-1">
-            <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Meaning</p>
-            <p class="text-sm leading-relaxed">{meaning}</p>
-          </section>
+          {#if showMeaningFirst}
+            <section class="space-y-1">
+              <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Meaning</p>
+              <p class="text-sm leading-relaxed">{meaning}</p>
+            </section>
 
-          <section class="space-y-1">
-            <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Simpler Version</p>
-            <p class="text-sm leading-relaxed">{simplerVersion}</p>
-          </section>
+            <section class="space-y-1">
+              <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Simpler Version</p>
+              <p class="text-sm leading-relaxed">{simplerVersion}</p>
+            </section>
+          {:else}
+            <section class="space-y-1">
+              <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Simpler Version</p>
+              <p class="text-sm leading-relaxed">{simplerVersion}</p>
+            </section>
+
+            <section class="space-y-1">
+              <p class="text-xs font-semibold uppercase tracking-wide text-muted-foreground">Meaning</p>
+              <p class="text-sm leading-relaxed">{meaning}</p>
+            </section>
+          {/if}
 
         </div>
       {/if}

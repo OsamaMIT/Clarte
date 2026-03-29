@@ -11,6 +11,7 @@ import {
 } from "./lib/storage";
 import type {
   CardState,
+  ExplanationOrder,
   ExplainCardData,
   ExplainRequestContext,
   SelectionData,
@@ -37,6 +38,7 @@ let cardData: ExplainCardData = {
   state: "hidden",
   meaning: "",
   simplerVersion: "",
+  explanationOrder: "meaning_first",
   confidence: null,
   errorMessage: "",
   position: { top: 16, left: 16 }
@@ -196,6 +198,7 @@ function showLoading(selection: SelectionData): void {
     selectedText: selection.selectedText,
     meaning: "",
     simplerVersion: "",
+    explanationOrder: "meaning_first",
     confidence: null,
     errorMessage: "",
     position: computeCardPosition(selection),
@@ -204,12 +207,16 @@ function showLoading(selection: SelectionData): void {
   });
 }
 
-function showSuccess(selection: SelectionData, payload: { meaning: string; simpler: string; confidence: number }): void {
+function showSuccess(
+  selection: SelectionData,
+  payload: { meaning: string; simpler: string; confidence: number; explanationOrder: ExplanationOrder }
+): void {
   const state: CardState = payload.confidence >= 0.7 ? "success" : "low_confidence";
   updateCard({
     selectedText: selection.selectedText,
     meaning: payload.meaning,
     simplerVersion: payload.simpler,
+    explanationOrder: payload.explanationOrder,
     confidence: payload.confidence,
     errorMessage: "",
     position: computeCardPosition(selection),
@@ -223,6 +230,7 @@ function showError(selection: SelectionData | null, errorMessage: string, isTime
     selectedText: selection?.selectedText ?? "No selected text",
     meaning: "",
     simplerVersion: "",
+    explanationOrder: "meaning_first",
     confidence: null,
     errorMessage,
     position: selection
@@ -295,7 +303,8 @@ async function runExplainFlow(fromRetry: boolean): Promise<void> {
       showSuccess(snapshot.selection, {
         meaning: cached.result.meaning,
         simpler: cached.result.simpler_version,
-        confidence: cached.result.confidence
+        confidence: cached.result.confidence,
+        explanationOrder: snapshot.settings.explanationOrder
       });
       return;
     }
@@ -315,7 +324,8 @@ async function runExplainFlow(fromRetry: boolean): Promise<void> {
   showSuccess(snapshot.selection, {
     meaning: result.result.meaning,
     simpler: result.result.simpler_version,
-    confidence: result.result.confidence
+    confidence: result.result.confidence,
+    explanationOrder: snapshot.settings.explanationOrder
   });
 
   await putCachedExplanation({

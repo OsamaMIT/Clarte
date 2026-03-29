@@ -5,6 +5,7 @@ export type Verbosity = "brief" | "balanced" | "detailed";
 export type EnglishLevel = "beginner" | "intermediate" | "advanced";
 
 export type TechnicalFamiliarity = "beginner" | "intermediate" | "advanced";
+export type ExplanationOrder = "meaning_first" | "simpler_first";
 
 export type SourceType = "social" | "news_article" | "technical" | "blog" | "general";
 
@@ -17,6 +18,7 @@ export interface UserSettings {
   nativeLanguage: string;
   englishLevel: EnglishLevel;
   technicalFamiliarity: TechnicalFamiliarity;
+  explanationOrder: ExplanationOrder;
 }
 
 export const DEFAULT_SETTINGS: UserSettings = {
@@ -25,7 +27,8 @@ export const DEFAULT_SETTINGS: UserSettings = {
   verbosity: "balanced",
   nativeLanguage: "English",
   englishLevel: "intermediate",
-  technicalFamiliarity: "intermediate"
+  technicalFamiliarity: "intermediate",
+  explanationOrder: "meaning_first"
 };
 
 export interface SelectionRect {
@@ -95,6 +98,7 @@ export interface ExplainCardData {
   state: CardState;
   meaning: string;
   simplerVersion: string;
+  explanationOrder: ExplanationOrder;
   confidence: number | null;
   errorMessage: string;
   position: {

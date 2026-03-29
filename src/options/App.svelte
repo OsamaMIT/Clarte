@@ -2,7 +2,14 @@
   import { onMount } from "svelte";
   import Button from "../lib/components/ui/button/button.svelte";
   import { getSettings, saveSettings } from "../lib/storage";
-  import type { AudienceMode, EnglishLevel, TechnicalFamiliarity, UserSettings, Verbosity } from "../lib/types";
+  import type {
+    AudienceMode,
+    EnglishLevel,
+    ExplanationOrder,
+    TechnicalFamiliarity,
+    UserSettings,
+    Verbosity
+  } from "../lib/types";
   import { DEFAULT_SETTINGS } from "../lib/types";
 
   let settings: UserSettings = { ...DEFAULT_SETTINGS };
@@ -13,6 +20,7 @@
   const verbosityModes: Verbosity[] = ["brief", "balanced", "detailed"];
   const englishLevels: EnglishLevel[] = ["beginner", "intermediate", "advanced"];
   const technicalLevels: TechnicalFamiliarity[] = ["beginner", "intermediate", "advanced"];
+  const explanationOrders: ExplanationOrder[] = ["meaning_first", "simpler_first"];
 
   onMount(async () => {
     settings = await getSettings();
@@ -105,6 +113,18 @@
           >
             {#each technicalLevels as level}
               <option value={level}>{level}</option>
+            {/each}
+          </select>
+        </label>
+
+        <label class="block space-y-1">
+          <span class="text-sm font-medium">Popup Order</span>
+          <select
+            class="w-full rounded-md border border-input bg-white px-3 py-2 text-sm outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            bind:value={settings.explanationOrder}
+          >
+            {#each explanationOrders as order}
+              <option value={order}>{order}</option>
             {/each}
           </select>
         </label>
